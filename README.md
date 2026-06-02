@@ -160,6 +160,21 @@ and capsule shapes for prominent large controls. Use
 `MacosDesign.capsuleBorderRadius` and `MacosDesign.concentricRadius` to keep
 custom geometry aligned with the system.
 
+Additional macOS 26 layout primitives are available for app-specific layouts:
+
+- `ToolBarItemGroup` groups related toolbar actions in one glass surface.
+- `MacosScrollEdgeEffect` clarifies where content scrolls beneath floating UI.
+- `MacosSplitViewItemAccessory` places floating controls above or below one
+  split-view item.
+- `MacosInspector` provides the edge-to-edge glass treatment used by
+  inspectors.
+- `MacosBackgroundExtension` extends decorative content behind floating
+  sidebars while keeping readable content in the safe area.
+
+`ControlSize.extraLarge` is available for prominent primary actions. Controls
+that do not support it, such as `MacosSwitch`, fall back to their nearest
+supported size.
+
 # Layout
 
 ## MacosWindow

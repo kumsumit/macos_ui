@@ -54,8 +54,8 @@ class MacosSwitch extends StatefulWidget {
   /// The size of the switch, which is [ControlSize.regular] by default.
   ///
   /// Allowable sizes are [ControlSize.mini], [ControlSize.small], and
-  /// [ControlSize.regular]. If [ControlSize.large] is used, the switch will
-  /// size itself as a [ControlSize.regular] switch.
+  /// [ControlSize.regular]. If [ControlSize.large] or [ControlSize.extraLarge]
+  /// is used, the switch will size itself as a [ControlSize.regular] switch.
   final ControlSize size;
 
   /// Called when the user toggles with switch on or off.

@@ -10,6 +10,7 @@ const _kMiniButtonSize = Size(26.0, 11.0);
 const _kSmallButtonSize = Size(39.0, 14.0);
 const _kRegularButtonSize = Size(60.0, 18.0);
 const _kLargeButtonSize = Size(48.0, 26.0);
+const _kExtraLargeButtonSize = Size(72.0, 32.0);
 
 const _kMiniButtonPadding = EdgeInsets.only(left: 6.0, right: 6.0, bottom: 1.0);
 const _kSmallButtonPadding = EdgeInsets.symmetric(
@@ -27,11 +28,16 @@ const _kLargeButtonPadding = EdgeInsets.only(
   left: 8.0,
   bottom: 1.0,
 );
+const _kExtraLargeButtonPadding = EdgeInsets.symmetric(
+  horizontal: 12.0,
+  vertical: 5.0,
+);
 
 const _kMiniButtonRadius = BorderRadius.all(Radius.circular(2.0));
 const _kSmallButtonRadius = BorderRadius.all(Radius.circular(2.0));
 const _kRegularButtonRadius = BorderRadius.all(Radius.circular(5.0));
 const _kLargeButtonRadius = BorderRadius.all(Radius.circular(13.0));
+const _kExtraLargeButtonRadius = BorderRadius.all(Radius.circular(16.0));
 
 /// Shortcuts for various [PushButton] properties based on the [ControlSize].
 extension PushButtonControlSizeX on ControlSize {
@@ -46,6 +52,8 @@ extension PushButtonControlSizeX on ControlSize {
         return _kRegularButtonPadding;
       case ControlSize.large:
         return _kLargeButtonPadding;
+      case ControlSize.extraLarge:
+        return _kExtraLargeButtonPadding;
     }
   }
 
@@ -60,6 +68,8 @@ extension PushButtonControlSizeX on ControlSize {
         return _kRegularButtonRadius;
       case ControlSize.large:
         return _kLargeButtonRadius;
+      case ControlSize.extraLarge:
+        return _kExtraLargeButtonRadius;
     }
   }
 
@@ -74,6 +84,8 @@ extension PushButtonControlSizeX on ControlSize {
         return baseStyle.copyWith(fontSize: 13.0);
       case ControlSize.large:
         return baseStyle;
+      case ControlSize.extraLarge:
+        return baseStyle.copyWith(fontSize: 15.0);
     }
   }
 
@@ -99,6 +111,11 @@ extension PushButtonControlSizeX on ControlSize {
         return BoxConstraints(
           minHeight: _kLargeButtonSize.height,
           minWidth: _kLargeButtonSize.width,
+        );
+      case ControlSize.extraLarge:
+        return BoxConstraints(
+          minHeight: _kExtraLargeButtonSize.height,
+          minWidth: _kExtraLargeButtonSize.width,
         );
     }
   }
