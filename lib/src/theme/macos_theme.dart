@@ -304,7 +304,7 @@ class MacosThemeData extends Equatable with Diagnosticable {
           : const Color.fromRGBO(0, 0, 0, 0.7),
     );
 
-    datePickerTheme = MacosDatePickerThemeData(
+    datePickerTheme ??= MacosDatePickerThemeData(
       shadowColor: const Color.fromRGBO(0, 0, 0, 0.1),
       backgroundColor: isDark
           ? const Color.fromRGBO(255, 255, 255, 0.1)
@@ -409,6 +409,7 @@ class MacosThemeData extends Equatable with Diagnosticable {
       popupButtonTheme: popupButtonTheme,
       pulldownButtonTheme: pulldownButtonTheme,
       datePickerTheme: datePickerTheme,
+      timePickerTheme: timePickerTheme,
       searchFieldTheme: searchFieldTheme,
       accentColor: accentColor,
       isMainWindow: isMainWindow,
@@ -543,7 +544,7 @@ class MacosThemeData extends Equatable with Diagnosticable {
       brightness: t < 0.5 ? a.brightness : b.brightness,
       dividerColor: lerpColor(a.dividerColor, b.dividerColor, t)!,
       primaryColor: lerpColor(a.primaryColor, b.primaryColor, t)!,
-      canvasColor: lerpColor(a.primaryColor, b.primaryColor, t)!,
+      canvasColor: lerpColor(a.canvasColor, b.canvasColor, t)!,
       typography: MacosTypography.lerp(a.typography, b.typography, t),
       helpButtonTheme: HelpButtonThemeData.lerp(
         a.helpButtonTheme,

@@ -210,7 +210,7 @@ class MacosTypography extends Equatable with Diagnosticable {
       subheadline: subheadline.merge(other.subheadline),
       body: body.merge(other.body),
       callout: callout.merge(other.callout),
-      footnote: callout.merge(other.footnote),
+      footnote: footnote.merge(other.footnote),
       caption1: caption1.merge(other.caption1),
       caption2: caption2.merge(other.caption2),
     );
@@ -457,7 +457,7 @@ class MacosFontWeight implements FontWeight {
       (a ?? normal).index,
       (b ?? normal).index,
       t,
-    ).round().clamp(0, 8)];
+    ).round().clamp(0, values.length - 1)];
   }
 
   @override

@@ -1,9 +1,6 @@
-import 'dart:ui';
-
 import 'package:flutter/foundation.dart';
 import 'package:macos_ui/macos_ui.dart';
 import 'package:macos_ui/src/layout/toolbar/overflow_handler.dart';
-import 'package:macos_ui/src/layout/wallpaper_tinting_settings/wallpaper_tinting_override.dart';
 import 'package:macos_ui/src/library.dart';
 
 /// Defines the height of a regular-sized [ToolBar]
@@ -267,7 +264,6 @@ class _ToolBarState extends State<ToolBar> {
         enableWallpaperTintedArea: kIsWeb ? false : !widget.enableBlur,
         isWidgetVisible: widget.allowWallpaperTintingOverrides,
         backgroundColor: theme.canvasColor,
-        widgetOpacity: widget.decoration?.color?.a,
         child: Container(
           alignment: widget.alignment,
           padding: widget.padding,
@@ -359,14 +355,12 @@ class _WallpaperTintedAreaOrBlurFilter extends StatelessWidget {
     required this.child,
     required this.enableWallpaperTintedArea,
     required this.backgroundColor,
-    required this.widgetOpacity,
     required this.isWidgetVisible,
   });
 
   final Widget child;
   final bool enableWallpaperTintedArea;
   final Color backgroundColor;
-  final double? widgetOpacity;
   final bool isWidgetVisible;
 
   @override
@@ -383,15 +377,10 @@ class _WallpaperTintedAreaOrBlurFilter extends StatelessWidget {
       return child;
     }
 
-    return WallpaperTintingOverride(
-      child: ClipRect(
-        child: BackdropFilter(
-          filter: widgetOpacity == 1.0
-              ? ImageFilter.blur()
-              : ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
-          child: child,
-        ),
-      ),
+    return MacosLiquidGlass(
+      borderRadius: BorderRadius.zero,
+      boxShadow: const [],
+      child: child,
     );
   }
 }

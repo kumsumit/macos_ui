@@ -18,6 +18,9 @@ class MacosSearchField<T> extends StatefulWidget {
   /// To provide a hint placeholder text that appears when the text entry is
   /// empty, pass a [String] to the [placeholder] parameter.
   ///
+  /// Prefer a description of the searchable content, such as "Projects" or
+  /// "Messages", instead of the default generic "Search" placeholder.
+  ///
   /// Based on a [MacosTextField] widget.
   ///
   /// When focused or tapped, it opens an overlay showing a [results] list

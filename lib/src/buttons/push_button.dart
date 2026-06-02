@@ -31,7 +31,7 @@ const _kLargeButtonPadding = EdgeInsets.only(
 const _kMiniButtonRadius = BorderRadius.all(Radius.circular(2.0));
 const _kSmallButtonRadius = BorderRadius.all(Radius.circular(2.0));
 const _kRegularButtonRadius = BorderRadius.all(Radius.circular(5.0));
-const _kLargeButtonRadius = BorderRadius.all(Radius.circular(7.0));
+const _kLargeButtonRadius = BorderRadius.all(Radius.circular(13.0));
 
 /// Shortcuts for various [PushButton] properties based on the [ControlSize].
 extension PushButtonControlSizeX on ControlSize {

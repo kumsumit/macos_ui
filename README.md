@@ -144,9 +144,21 @@ should avoid allowing your application window to be resized below the height of 
 
 ## Resources
 
-- [macOS Sonoma Figma kit](https://www.figma.com/file/M6K5L3GK0WJh6pnsASyVeE/macOS-Big-Sur-UI-Kit?node-id=1%3A2)
+- [Apple Design Resources](https://developer.apple.com/design/resources/)
 - [macOS Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/designing-for-macos)
-- [macOS Design Resources](https://developer.apple.com/design/resources/)
+- [Adopting Liquid Glass](https://developer.apple.com/documentation/technologyoverviews/adopting-liquid-glass)
+
+## macOS 26 design language
+
+The macOS 26 design language separates content from a functional Liquid Glass
+layer used for controls and navigation. `macos_ui` applies
+`MacosLiquidGlass` to floating overlays, toolbars, sheets, and alerts while
+keeping content backgrounds on standard wallpaper-tinted materials.
+
+For custom controls, use compact rounded rectangles in dense desktop layouts
+and capsule shapes for prominent large controls. Use
+`MacosDesign.capsuleBorderRadius` and `MacosDesign.concentricRadius` to keep
+custom geometry aligned with the system.
 
 # Layout
 

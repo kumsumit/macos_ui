@@ -72,16 +72,10 @@ class MacosSheet extends StatelessWidget {
       padding: effectivePadding,
       duration: insetAnimationDuration,
       curve: insetAnimationCurve,
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color:
-              backgroundColor ??
-              brightness.resolve(
-                CupertinoColors.systemGrey6.color,
-                MacosColors.controlBackgroundColor.darkColor,
-              ),
-          borderRadius: _kSheetBorderRadius,
-        ),
+      child: MacosLiquidGlass(
+        borderRadius: _kSheetBorderRadius,
+        style: MacosLiquidGlassStyle.prominent,
+        color: backgroundColor,
         child: Container(
           decoration: BoxDecoration(
             border: Border.all(width: 2, color: innerBorderColor),

@@ -133,79 +133,87 @@ class MacosAlertDialog extends StatelessWidget {
     );
 
     return Dialog(
-      backgroundColor: brightness.resolve(
-        CupertinoColors.systemGrey6.color,
-        MacosColors.controlBackgroundColor.darkColor,
-      ),
+      backgroundColor: MacosColors.transparent,
       shape: const RoundedRectangleBorder(borderRadius: _kDialogBorderRadius),
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        decoration: BoxDecoration(
-          border: Border.all(width: 2, color: innerBorderColor),
-          borderRadius: _kDialogBorderRadius,
-        ),
-        foregroundDecoration: BoxDecoration(
-          border: Border.all(width: 1, color: outerBorderColor),
-          borderRadius: _kDialogBorderRadius,
-        ),
-        child: ConstrainedBox(
-          constraints: _kDefaultDialogConstraints,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const SizedBox(height: 20),
-              ConstrainedBox(
-                constraints: const BoxConstraints(maxHeight: 64, maxWidth: 64),
-                child: appIcon,
-              ),
-              const SizedBox(height: 16),
-              DefaultTextStyle(
-                style: MacosTheme.of(context).typography.headline,
-                textAlign: TextAlign.center,
-                child: title,
-              ),
-              const SizedBox(height: 10),
-              DefaultTextStyle(
-                textAlign: TextAlign.center,
-                style: MacosTheme.of(context).typography.headline,
-                child: message,
-              ),
-              const SizedBox(height: 16),
-              if (secondaryButton == null) ...[
-                Row(children: [Expanded(child: primaryButton)]),
-              ] else ...[
-                if (horizontalActions!) ...[
-                  Row(
-                    children: [
-                      if (secondaryButton != null) ...[
-                        Expanded(child: secondaryButton!),
-                        const SizedBox(width: 8.0),
-                      ],
-                      Expanded(child: primaryButton),
-                    ],
+      child: MacosLiquidGlass(
+        borderRadius: _kDialogBorderRadius,
+        style: MacosLiquidGlassStyle.prominent,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          decoration: BoxDecoration(
+            border: Border.all(width: 2, color: innerBorderColor),
+            borderRadius: _kDialogBorderRadius,
+          ),
+          foregroundDecoration: BoxDecoration(
+            border: Border.all(width: 1, color: outerBorderColor),
+            borderRadius: _kDialogBorderRadius,
+          ),
+          child: ConstrainedBox(
+            constraints: _kDefaultDialogConstraints,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const SizedBox(height: 20),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(
+                      maxHeight: 64,
+                      maxWidth: 64,
+                    ),
+                    child: appIcon,
                   ),
-                ] else ...[
-                  Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Row(children: [Expanded(child: primaryButton)]),
-                      const SizedBox(height: 8.0),
-                      if (secondaryButton != null) ...[
-                        Row(children: [Expanded(child: secondaryButton!)]),
-                      ],
-                    ],
-                  ),
-                ],
-              ],
-              if (suppress != null) ...[
+                ),
                 const SizedBox(height: 16),
                 DefaultTextStyle(
                   style: MacosTheme.of(context).typography.headline,
-                  child: suppress!,
+                  textAlign: TextAlign.start,
+                  child: title,
                 ),
+                const SizedBox(height: 10),
+                DefaultTextStyle(
+                  textAlign: TextAlign.start,
+                  style: MacosTheme.of(context).typography.headline,
+                  child: message,
+                ),
+                const SizedBox(height: 16),
+                if (secondaryButton == null) ...[
+                  Row(children: [Expanded(child: primaryButton)]),
+                ] else ...[
+                  if (horizontalActions!) ...[
+                    Row(
+                      children: [
+                        if (secondaryButton != null) ...[
+                          Expanded(child: secondaryButton!),
+                          const SizedBox(width: 8.0),
+                        ],
+                        Expanded(child: primaryButton),
+                      ],
+                    ),
+                  ] else ...[
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Row(children: [Expanded(child: primaryButton)]),
+                        const SizedBox(height: 8.0),
+                        if (secondaryButton != null) ...[
+                          Row(children: [Expanded(child: secondaryButton!)]),
+                        ],
+                      ],
+                    ),
+                  ],
+                ],
+                if (suppress != null) ...[
+                  const SizedBox(height: 16),
+                  DefaultTextStyle(
+                    style: MacosTheme.of(context).typography.headline,
+                    child: suppress!,
+                  ),
+                ],
+                const SizedBox(height: 16),
               ],
-              const SizedBox(height: 16),
-            ],
+            ),
           ),
         ),
       ),
