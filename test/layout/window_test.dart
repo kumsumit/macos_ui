@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:macos_ui/macos_ui.dart';
+import 'package:macos_window_utils/widgets/transparent_macos_sidebar.dart';
 
 void main() {
   group('MacosWindow', () {
@@ -15,6 +16,7 @@ void main() {
         bool dragClosed = true,
         double? dragClosedBuffer,
         double? snapToStartBuffer,
+        BoxDecoration? decoration,
       }) {
         return Sidebar(
           builder: (context, scrollController) => const Text('Hello there'),
@@ -24,6 +26,7 @@ void main() {
           dragClosed: dragClosed,
           dragClosedBuffer: dragClosedBuffer,
           snapToStartBuffer: snapToStartBuffer,
+          decoration: decoration,
         );
       }
 
@@ -60,6 +63,43 @@ void main() {
         await tester.pumpWidget(view);
 
         expectSidebarOpen(tester, width: startWidth);
+
+        await tester.pump(Duration.zero);
+      });
+
+      testWidgets('respects the sidebar decoration color', (tester) async {
+        const color = Color(0xff123456);
+        final view = viewBuilder(
+          sidebarBuilder(decoration: const BoxDecoration(color: color)),
+        );
+        await tester.pumpWidget(view);
+
+        final decoratedBox =
+            tester
+                    .widget<TransparentMacOSSidebar>(
+                      find.byType(TransparentMacOSSidebar),
+                    )
+                    .child
+                as DecoratedBox;
+        expect((decoratedBox.decoration as BoxDecoration).color, color);
+
+        await tester.pump(Duration.zero);
+      });
+
+      testWidgets('leaves the native sidebar transparent by default', (
+        tester,
+      ) async {
+        final view = viewBuilder(sidebarBuilder());
+        await tester.pumpWidget(view);
+
+        final decoratedBox =
+            tester
+                    .widget<TransparentMacOSSidebar>(
+                      find.byType(TransparentMacOSSidebar),
+                    )
+                    .child
+                as DecoratedBox;
+        expect((decoratedBox.decoration as BoxDecoration).color, isNull);
 
         await tester.pump(Duration.zero);
       });
