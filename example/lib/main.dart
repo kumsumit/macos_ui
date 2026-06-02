@@ -68,6 +68,26 @@ class _WidgetGalleryState extends State<WidgetGallery> {
 
   late final searchFieldController = TextEditingController();
 
+  static const _pageIndexes = {
+    'Buttons': 0,
+    'Indicators': 1,
+    'Fields': 2,
+    'Colors': 3,
+    'Dialogs and Sheets': 4,
+    'Toolbar': 5,
+    'SliverToolbar': 6,
+    'TabView': 7,
+    'ResizablePane': 8,
+    'Selectors': 9,
+    'Typography': 10,
+  };
+
+  @override
+  void dispose() {
+    searchFieldController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return PlatformMenuBar(
@@ -75,74 +95,19 @@ class _WidgetGalleryState extends State<WidgetGallery> {
       child: MacosWindow(
         sidebar: Sidebar(
           top: MacosSearchField(
-            placeholder: 'Search',
+            placeholder: 'Search components',
             controller: searchFieldController,
             onResultSelected: (result) {
-              switch (result.searchKey) {
-                case 'Buttons':
-                  setState(() {
-                    pageIndex = 0;
-                    searchFieldController.clear();
-                  });
-                  break;
-                case 'Indicators':
-                  setState(() {
-                    pageIndex = 1;
-                    searchFieldController.clear();
-                  });
-                  break;
-                case 'Fields':
-                  setState(() {
-                    pageIndex = 2;
-                    searchFieldController.clear();
-                  });
-                  break;
-                case 'Colors':
-                  setState(() {
-                    pageIndex = 3;
-                    searchFieldController.clear();
-                  });
-                  break;
-                case 'Dialogs and Sheets':
-                  setState(() {
-                    pageIndex = 4;
-                    searchFieldController.clear();
-                  });
-                  break;
-                case 'Toolbar':
-                  setState(() {
-                    pageIndex = 6;
-                    searchFieldController.clear();
-                  });
-                  break;
-                case 'ResizablePane':
-                  setState(() {
-                    pageIndex = 7;
-                    searchFieldController.clear();
-                  });
-                  break;
-                case 'Selectors':
-                  setState(() {
-                    pageIndex = 8;
-                    searchFieldController.clear();
-                  });
-                  break;
-                default:
-                  searchFieldController.clear();
+              final index = _pageIndexes[result.searchKey];
+              if (index != null) {
+                setState(() => pageIndex = index);
               }
+              searchFieldController.clear();
             },
-            results: const [
-              SearchResultItem('Buttons'),
-              SearchResultItem('Indicators'),
-              SearchResultItem('Fields'),
-              SearchResultItem('Colors'),
-              SearchResultItem('Dialogs and Sheets'),
-              SearchResultItem('Toolbar'),
-              SearchResultItem('ResizablePane'),
-              SearchResultItem('Selectors'),
-            ],
+            results: _pageIndexes.keys.map(SearchResultItem.new).toList(),
           ),
-          minWidth: 200,
+          minWidth: 220,
+          startWidth: 240,
           builder: (context, scrollController) {
             return SidebarItems(
               currentIndex: pageIndex,
@@ -258,9 +223,9 @@ class _WidgetGalleryState extends State<WidgetGallery> {
             );
           },
           bottom: const MacosListTile(
-            leading: MacosIcon(CupertinoIcons.profile_circled),
-            title: Text('Tim Apple'),
-            subtitle: Text('tim@apple.com'),
+            leading: MacosIcon(CupertinoIcons.square_grid_2x2),
+            title: Text('macos_ui'),
+            subtitle: Text('Widget Gallery'),
           ),
         ),
         endSidebar: Sidebar(
