@@ -67,6 +67,39 @@ void main() {
         await tester.pump(Duration.zero);
       });
 
+      testWidgets('uses startWidth when a sidebar is added after mount', (
+        tester,
+      ) async {
+        late StateSetter setState;
+        var showSidebar = false;
+        await tester.pumpWidget(
+          MacosApp(
+            home: StatefulBuilder(
+              builder: (context, stateSetter) {
+                setState = stateSetter;
+                return MacosWindow(
+                  disableWallpaperTinting: true,
+                  sidebar: showSidebar ? sidebarBuilder() : null,
+                  child: const MacosScaffold(children: []),
+                );
+              },
+            ),
+          ),
+        );
+
+        setState(() => showSidebar = true);
+        await tester.pump();
+
+        expect(
+          tester
+              .widget<AnimatedPositioned>(find.byType(AnimatedPositioned).at(1))
+              .width,
+          startWidth,
+        );
+
+        await tester.pump(Duration.zero);
+      });
+
       testWidgets('respects the sidebar decoration color', (tester) async {
         const color = Color(0xff123456);
         final view = viewBuilder(

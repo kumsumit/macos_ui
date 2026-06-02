@@ -45,7 +45,7 @@ class ToolBar extends StatefulWidget with Diagnosticable {
     this.centerTitle = false,
     this.dividerColor,
     this.allowWallpaperTintingOverrides = true,
-    this.enableBlur = false,
+    this.enableBlur = true,
   });
 
   /// Specifies the height of this [ToolBar].
@@ -150,6 +150,9 @@ class ToolBar extends StatefulWidget with Diagnosticable {
   final bool allowWallpaperTintingOverrides;
 
   /// Whether this [ToolBar] should have a blur backdrop filter applied to it.
+  ///
+  /// Defaults to `true` to give the toolbar a translucent system-material
+  /// appearance. Set this to `false` to use wallpaper tinting instead.
   final bool enableBlur;
 
   @override
@@ -188,8 +191,7 @@ class _ToolBarState extends State<ToolBar> {
   @override
   void didUpdateWidget(ToolBar oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (widget.actions != null &&
-        widget.actions!.length != oldWidget.actions!.length) {
+    if (widget.actions?.length != oldWidget.actions?.length) {
       overflowedActionsCount = 0;
     }
   }

@@ -444,7 +444,7 @@ class _SidebarItem extends StatelessWidget {
                     child: MacosIconTheme.merge(
                       data: MacosIconThemeData(
                         color: selected
-                            ? MacosColors.white
+                            ? textLuminance(selectedColor)
                             : theme.primaryColor,
                         size: itemSize.iconSize,
                       ),

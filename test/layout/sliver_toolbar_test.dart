@@ -10,6 +10,7 @@ void main() {
     bool pinned = true,
     bool floating = false,
     double opacity = 0.9,
+    double height = 52.0,
   }) async {
     await tester.pumpWidget(
       MacosApp(
@@ -25,6 +26,7 @@ void main() {
                       pinned: pinned,
                       floating: floating,
                       toolbarOpacity: 0.9,
+                      height: height,
                     ),
                     const SliverToBoxAdapter(child: SizedBox(height: 1200)),
                   ],
@@ -73,6 +75,15 @@ void main() {
       tester.getBottomLeft(find.byKey(leadingKey)),
       const Offset(8.0, 47.0),
     );
+
+    await tester.pump(Duration.zero);
+  });
+
+  testWidgets('respects a custom toolbar height', (tester) async {
+    final ScrollController controller = ScrollController();
+    await pumpScrollableWithSliverToolbar(tester, controller, height: 64.0);
+
+    expect(tester.getSize(find.byType(ToolBar)).height, 64.0);
 
     await tester.pump(Duration.zero);
   });

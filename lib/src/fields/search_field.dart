@@ -219,7 +219,7 @@ class _MacosSearchFieldState<T> extends State<MacosSearchField<T>> {
   FocusNode? _focus;
   bool isResultExpanded = false;
   TextEditingController? searchController;
-  late OverlayEntry _overlayEntry;
+  OverlayEntry? _overlayEntry;
   final LayerLink _layerLink = LayerLink();
   double height = 0.0;
   bool showOverlayAbove = false;
@@ -233,23 +233,30 @@ class _MacosSearchFieldState<T> extends State<MacosSearchField<T>> {
     } else {
       _focus = FocusNode();
     }
-    _focus!.addListener(() {
-      if (mounted) {
-        setState(() {
-          isResultExpanded = _focus!.hasFocus;
-        });
-      }
-      if (isResultExpanded) {
-        _overlayEntry = _createOverlay();
-        Overlay.of(context).insert(_overlayEntry);
-      } else {
-        _overlayEntry.remove();
-      }
-    });
+    _focus!.addListener(_handleFocusChanged);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       suggestionStream.sink.add(null);
       suggestionStream.sink.add(widget.results);
     });
+  }
+
+  void _handleFocusChanged() {
+    if (!mounted) return;
+    setState(() {
+      isResultExpanded = _focus!.hasFocus;
+    });
+    if (isResultExpanded) {
+      _removeOverlay();
+      _overlayEntry = _createOverlay();
+      Overlay.of(context).insert(_overlayEntry!);
+    } else {
+      _removeOverlay();
+    }
+  }
+
+  void _removeOverlay() {
+    _overlayEntry?.remove();
+    _overlayEntry = null;
   }
 
   OverlayEntry _createOverlay() {
@@ -372,6 +379,8 @@ class _MacosSearchFieldState<T> extends State<MacosSearchField<T>> {
 
   @override
   void dispose() {
+    _removeOverlay();
+    _focus!.removeListener(_handleFocusChanged);
     suggestionStream.close();
     if (widget.controller == null) {
       searchController!.dispose();

@@ -98,7 +98,7 @@ void main() {
         theme.highlightColor,
         const MacosColor.fromRGBO(9, 129, 255, 0.749),
       );
-      expect(theme.pulldownColor, const Color(0xfff2f2f7));
+      expect(theme.pulldownColor, const Color.fromRGBO(242, 242, 247, 0.82));
     });
   });
 }

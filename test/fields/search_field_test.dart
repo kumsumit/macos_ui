@@ -76,4 +76,21 @@ void main() {
     expect(controller.text, 'elephant');
     expect(find.byType(ListView), findsNothing);
   });
+
+  testWidgets('removes its results overlay when disposed while focused', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      const MacosApp(
+        home: MacosSearchField(results: [SearchResultItem('Result')]),
+      ),
+    );
+    await tester.tap(find.byType(MacosTextField));
+    await tester.pump();
+
+    await tester.pumpWidget(const MacosApp(home: SizedBox.shrink()));
+    await tester.pump();
+
+    expect(tester.takeException(), isNull);
+  });
 }

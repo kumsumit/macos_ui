@@ -204,8 +204,7 @@ class _SliverToolBarState extends State<SliverToolBar>
   @override
   void didUpdateWidget(SliverToolBar oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (widget.actions != null &&
-        widget.actions!.length != oldWidget.actions!.length) {
+    if (widget.actions?.length != oldWidget.actions?.length) {
       overflowedActionsCount = 0;
     }
   }
@@ -278,10 +277,10 @@ class _SliverToolBarDelegate extends SliverPersistentHeaderDelegate {
   final bool allowWallpaperTintingOverrides;
 
   @override
-  double get minExtent => _kToolbarHeight;
+  double get minExtent => height;
 
   @override
-  double get maxExtent => _kToolbarHeight;
+  double get maxExtent => height;
 
   @override
   final TickerProvider vsync;
@@ -339,6 +338,7 @@ class _SliverToolBarDelegate extends SliverPersistentHeaderDelegate {
   @override
   bool shouldRebuild(covariant _SliverToolBarDelegate oldDelegate) {
     return leading != oldDelegate.leading ||
+        height != oldDelegate.height ||
         automaticallyImplyLeading != oldDelegate.automaticallyImplyLeading ||
         alignment != oldDelegate.alignment ||
         title != oldDelegate.title ||
@@ -351,6 +351,7 @@ class _SliverToolBarDelegate extends SliverPersistentHeaderDelegate {
         dividerColor != oldDelegate.dividerColor ||
         floating != oldDelegate.floating ||
         pinned != oldDelegate.pinned ||
+        toolbarOpacity != oldDelegate.toolbarOpacity ||
         allowWallpaperTintingOverrides !=
             oldDelegate.allowWallpaperTintingOverrides;
   }

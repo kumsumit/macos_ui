@@ -251,9 +251,7 @@ class MacosThemeData extends Equatable with Diagnosticable {
     );
     macosIconButtonTheme ??= MacosIconButtonThemeData(
       backgroundColor: MacosColors.transparent,
-      disabledColor: isDark
-          ? const Color(0xff353535)
-          : const Color(0xffE5E5E5),
+      disabledColor: isDark ? const Color(0xff353535) : const Color(0xffE5E5E5),
       hoverColor: isDark ? const Color(0xff333336) : const Color(0xffF3F2F2),
       shape: BoxShape.circle,
       boxConstraints: const BoxConstraints(
@@ -285,8 +283,8 @@ class MacosThemeData extends Equatable with Diagnosticable {
           ? const Color.fromRGBO(255, 255, 255, 0.247)
           : const Color.fromRGBO(255, 255, 255, 1),
       popupColor: isDark
-          ? const Color.fromRGBO(30, 30, 30, 1)
-          : const Color.fromRGBO(242, 242, 247, 1),
+          ? const Color.fromRGBO(30, 30, 30, 0.82)
+          : const Color.fromRGBO(242, 242, 247, 0.82),
     );
 
     pulldownButtonTheme ??= MacosPulldownButtonThemeData(
@@ -299,8 +297,8 @@ class MacosThemeData extends Equatable with Diagnosticable {
           ? const Color.fromRGBO(255, 255, 255, 0.247)
           : const Color.fromRGBO(255, 255, 255, 1),
       pulldownColor: isDark
-          ? const Color.fromRGBO(30, 30, 30, 1)
-          : const Color.fromRGBO(242, 242, 247, 1),
+          ? const Color.fromRGBO(30, 30, 30, 0.82)
+          : const Color.fromRGBO(242, 242, 247, 0.82),
       iconColor: isDark
           ? const Color.fromRGBO(255, 255, 255, 0.7)
           : const Color.fromRGBO(0, 0, 0, 0.7),
@@ -369,8 +367,8 @@ class MacosThemeData extends Equatable with Diagnosticable {
         isWindowMain: isMainWindow ?? true,
       ),
       resultsBackgroundColor: isDark
-          ? const Color.fromRGBO(30, 30, 30, 1)
-          : const Color.fromRGBO(242, 242, 247, 1),
+          ? const Color.fromRGBO(30, 30, 30, 0.82)
+          : const Color.fromRGBO(242, 242, 247, 0.82),
     );
 
     final defaultData = MacosThemeData.raw(

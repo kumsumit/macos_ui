@@ -43,8 +43,8 @@ class MacosOverlayFilter extends StatelessWidget {
           color:
               color ??
               (brightness.isDark
-                  ? const Color.fromRGBO(30, 30, 30, 1)
-                  : const Color.fromRGBO(242, 242, 247, 1)),
+                  ? const Color.fromRGBO(30, 30, 30, 0.82)
+                  : const Color.fromRGBO(242, 242, 247, 0.82)),
           boxShadow: [
             BoxShadow(
               color: brightness
