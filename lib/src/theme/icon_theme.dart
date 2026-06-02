@@ -108,8 +108,7 @@ class MacosIconThemeData with Diagnosticable {
   ///
   /// The opacity applies to both explicit and default icon colors. The value
   /// is clamped between 0.0 and 1.0.
-  const MacosIconThemeData({this.color, double? opacity, this.size})
-    : _opacity = opacity;
+  const MacosIconThemeData({this.color, this._opacity, this.size});
 
   /// Creates an icon theme with some reasonable default values.
   ///
@@ -181,7 +180,7 @@ class MacosIconThemeData with Diagnosticable {
     double t,
   ) {
     return MacosIconThemeData(
-      color: Color.lerp(a?.color, b?.color, t),
+      color: lerpColor(a?.color, b?.color, t),
       opacity: ui.lerpDouble(a?.opacity, b?.opacity, t),
       size: ui.lerpDouble(a?.size, b?.size, t),
     );

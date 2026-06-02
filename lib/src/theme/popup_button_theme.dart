@@ -96,9 +96,9 @@ class MacosPopupButtonThemeData with Diagnosticable {
     double t,
   ) {
     return MacosPopupButtonThemeData(
-      highlightColor: Color.lerp(a.highlightColor, b.highlightColor, t),
-      backgroundColor: Color.lerp(a.backgroundColor, b.backgroundColor, t),
-      popupColor: Color.lerp(a.popupColor, b.popupColor, t),
+      highlightColor: lerpColor(a.highlightColor, b.highlightColor, t),
+      backgroundColor: lerpColor(a.backgroundColor, b.backgroundColor, t),
+      popupColor: lerpColor(a.popupColor, b.popupColor, t),
     );
   }
 

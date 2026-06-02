@@ -425,23 +425,17 @@ const Duration _kToggleDuration = Duration(milliseconds: 300);
 
 class _RenderMacosSwitch extends RenderConstrainedBox {
   _RenderMacosSwitch({
-    required bool value,
+    required this._value,
     required ControlSize size,
-    required MacosColor activeColor,
-    required MacosColor trackColor,
+    required this._activeColor,
+    required this._trackColor,
     required MacosColor knobColor,
-    required MacosColor borderColor,
-    required ValueChanged<bool>? onChanged,
-    required TextDirection textDirection,
+    required this._borderColor,
+    required this._onChanged,
+    required this._textDirection,
     required _MacosSwitchState state,
-  }) : _value = value,
-       _size = size,
-       _activeColor = activeColor,
-       _trackColor = trackColor,
+  }) : _size = size,
        _knobPainter = MacosSwitchKnobPainter(color: knobColor),
-       _borderColor = borderColor,
-       _onChanged = onChanged,
-       _textDirection = textDirection,
        _state = state,
        super(
          additionalConstraints: BoxConstraints.tightFor(

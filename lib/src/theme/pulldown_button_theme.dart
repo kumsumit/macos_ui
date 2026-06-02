@@ -102,10 +102,10 @@ class MacosPulldownButtonThemeData with Diagnosticable {
     double t,
   ) {
     return MacosPulldownButtonThemeData(
-      highlightColor: Color.lerp(a.highlightColor, b.highlightColor, t),
-      backgroundColor: Color.lerp(a.backgroundColor, b.backgroundColor, t),
-      pulldownColor: Color.lerp(a.pulldownColor, b.pulldownColor, t),
-      iconColor: Color.lerp(a.iconColor, b.iconColor, t),
+      highlightColor: lerpColor(a.highlightColor, b.highlightColor, t),
+      backgroundColor: lerpColor(a.backgroundColor, b.backgroundColor, t),
+      pulldownColor: lerpColor(a.pulldownColor, b.pulldownColor, t),
+      iconColor: lerpColor(a.iconColor, b.iconColor, t),
     );
   }
 

@@ -136,7 +136,7 @@ class MacosScrollbarThemeData with Diagnosticable {
       ),
       thumbVisibility: t < 0.5 ? a?.thumbVisibility : b?.thumbVisibility,
       radius: Radius.lerp(a?.radius, b?.radius, t),
-      thumbColor: Color.lerp(a?.thumbColor, b?.thumbColor, t),
+      thumbColor: lerpColor(a?.thumbColor, b?.thumbColor, t),
     );
   }
 

@@ -253,7 +253,7 @@ class MacosThemeData extends Equatable with Diagnosticable {
       backgroundColor: MacosColors.transparent,
       disabledColor: isDark
           ? const Color(0xff353535)
-          : const Color(0xffE5E5E5), // TODO: correct disabled color
+          : const Color(0xffE5E5E5),
       hoverColor: isDark ? const Color(0xff333336) : const Color(0xffF3F2F2),
       shape: BoxShape.circle,
       boxConstraints: const BoxConstraints(
@@ -543,9 +543,9 @@ class MacosThemeData extends Equatable with Diagnosticable {
   static MacosThemeData lerp(MacosThemeData a, MacosThemeData b, double t) {
     return MacosThemeData.raw(
       brightness: t < 0.5 ? a.brightness : b.brightness,
-      dividerColor: Color.lerp(a.dividerColor, b.dividerColor, t)!,
-      primaryColor: Color.lerp(a.primaryColor, b.primaryColor, t)!,
-      canvasColor: Color.lerp(a.primaryColor, b.primaryColor, t)!,
+      dividerColor: lerpColor(a.dividerColor, b.dividerColor, t)!,
+      primaryColor: lerpColor(a.primaryColor, b.primaryColor, t)!,
+      canvasColor: lerpColor(a.primaryColor, b.primaryColor, t)!,
       typography: MacosTypography.lerp(a.typography, b.typography, t),
       helpButtonTheme: HelpButtonThemeData.lerp(
         a.helpButtonTheme,

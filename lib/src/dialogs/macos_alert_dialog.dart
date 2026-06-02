@@ -252,15 +252,12 @@ Future<T?> showMacosAlertDialog<T>({
 
 class _MacosAlertDialogRoute<T> extends PopupRoute<T> {
   _MacosAlertDialogRoute({
-    required RoutePageBuilder pageBuilder,
-    bool barrierDismissible = false,
-    Color? barrierColor = const Color(0x80000000),
-    String? barrierLabel,
+    required this._pageBuilder,
+    this._barrierDismissible = false,
+    this._barrierColor = const Color(0x80000000),
+    this._barrierLabel,
     super.settings,
-  }) : _pageBuilder = pageBuilder,
-       _barrierDismissible = barrierDismissible,
-       _barrierLabel = barrierLabel,
-       _barrierColor = barrierColor;
+  });
 
   final RoutePageBuilder _pageBuilder;
 

@@ -123,9 +123,9 @@ class PushButtonThemeData with Diagnosticable {
     double t,
   ) {
     return PushButtonThemeData(
-      color: Color.lerp(a.color, b.color, t),
-      disabledColor: Color.lerp(a.disabledColor, b.disabledColor, t),
-      secondaryColor: Color.lerp(a.secondaryColor, b.secondaryColor, t),
+      color: lerpColor(a.color, b.color, t),
+      disabledColor: lerpColor(a.disabledColor, b.disabledColor, t),
+      secondaryColor: lerpColor(a.secondaryColor, b.secondaryColor, t),
     );
   }
 

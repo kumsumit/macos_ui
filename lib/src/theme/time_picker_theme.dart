@@ -167,48 +167,48 @@ class MacosTimePickerThemeData with Diagnosticable {
     double t,
   ) {
     return MacosTimePickerThemeData(
-      backgroundColor: Color.lerp(a.backgroundColor, b.backgroundColor, t),
-      selectedElementColor: Color.lerp(
+      backgroundColor: lerpColor(a.backgroundColor, b.backgroundColor, t),
+      selectedElementColor: lerpColor(
         a.selectedElementColor,
         b.selectedElementColor,
         t,
       ),
-      selectedElementTextColor: Color.lerp(
+      selectedElementTextColor: lerpColor(
         a.selectedElementTextColor,
         b.selectedElementTextColor,
         t,
       ),
-      caretColor: Color.lerp(a.caretColor, b.caretColor, t),
-      caretControlsBackgroundColor: Color.lerp(
+      caretColor: lerpColor(a.caretColor, b.caretColor, t),
+      caretControlsBackgroundColor: lerpColor(
         a.caretControlsBackgroundColor,
         b.caretControlsBackgroundColor,
         t,
       ),
-      caretControlsSeparatorColor: Color.lerp(
+      caretControlsSeparatorColor: lerpColor(
         a.caretControlsSeparatorColor,
         b.caretControlsSeparatorColor,
         t,
       ),
-      clockViewBackgroundColor: Color.lerp(
+      clockViewBackgroundColor: lerpColor(
         a.clockViewBackgroundColor,
         b.clockViewBackgroundColor,
         t,
       ),
-      hourHandColor: Color.lerp(a.hourHandColor, b.hourHandColor, t),
-      minuteHandColor: Color.lerp(a.minuteHandColor, b.minuteHandColor, t),
-      secondHandColor: Color.lerp(a.secondHandColor, b.secondHandColor, t),
-      hourTextColor: Color.lerp(a.hourTextColor, b.hourTextColor, t),
-      dayPeriodTextColor: Color.lerp(
+      hourHandColor: lerpColor(a.hourHandColor, b.hourHandColor, t),
+      minuteHandColor: lerpColor(a.minuteHandColor, b.minuteHandColor, t),
+      secondHandColor: lerpColor(a.secondHandColor, b.secondHandColor, t),
+      hourTextColor: lerpColor(a.hourTextColor, b.hourTextColor, t),
+      dayPeriodTextColor: lerpColor(
         a.dayPeriodTextColor,
         b.dayPeriodTextColor,
         t,
       ),
-      clockViewBorderColor: Color.lerp(
+      clockViewBorderColor: lerpColor(
         a.clockViewBorderColor,
         b.clockViewBorderColor,
         t,
       ),
-      shadowColor: Color.lerp(a.shadowColor, b.shadowColor, t),
+      shadowColor: lerpColor(a.shadowColor, b.shadowColor, t),
     );
   }
 

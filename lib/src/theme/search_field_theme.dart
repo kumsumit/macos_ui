@@ -95,8 +95,8 @@ class MacosSearchFieldThemeData with Diagnosticable {
     double t,
   ) {
     return MacosSearchFieldThemeData(
-      highlightColor: Color.lerp(a.highlightColor, b.highlightColor, t),
-      resultsBackgroundColor: Color.lerp(
+      highlightColor: lerpColor(a.highlightColor, b.highlightColor, t),
+      resultsBackgroundColor: lerpColor(
         a.resultsBackgroundColor,
         b.resultsBackgroundColor,
         t,

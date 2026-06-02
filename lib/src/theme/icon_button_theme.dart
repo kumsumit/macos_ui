@@ -118,9 +118,9 @@ class MacosIconButtonThemeData with Diagnosticable {
     double t,
   ) {
     return MacosIconButtonThemeData(
-      backgroundColor: Color.lerp(a.backgroundColor, b.backgroundColor, t),
-      disabledColor: Color.lerp(a.disabledColor, b.disabledColor, t),
-      hoverColor: Color.lerp(a.hoverColor, b.hoverColor, t),
+      backgroundColor: lerpColor(a.backgroundColor, b.backgroundColor, t),
+      disabledColor: lerpColor(a.disabledColor, b.disabledColor, t),
+      hoverColor: lerpColor(a.hoverColor, b.hoverColor, t),
       shape: b.shape,
       borderRadius: BorderRadius.lerp(a.borderRadius, b.borderRadius, t),
       boxConstraints: BoxConstraints.lerp(

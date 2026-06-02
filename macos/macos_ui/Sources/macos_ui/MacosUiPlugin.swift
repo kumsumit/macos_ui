@@ -29,10 +29,18 @@ public class MacOSUiPlugin: NSObject, FlutterPlugin, FlutterStreamHandler {
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
     switch call.method {
     case "color_panel":
-      if let arguments = call.arguments as? Dictionary<String, Any> {
+      guard
+        let arguments = call.arguments as? Dictionary<String, Any>,
         let mode = arguments["mode"] as? String
-        colorPanelProvider.openPanel(pickerMode: mode!)
+      else {
+        result(FlutterError(
+          code: "invalid_arguments",
+          message: "color_panel requires a string mode.",
+          details: nil))
+        return
       }
+      colorPanelProvider.openPanel(pickerMode: mode)
+      result(nil)
     default:
       result(FlutterMethodNotImplemented)
     }

@@ -153,6 +153,16 @@ extension ColorX on Color {
   }
 }
 
+/// Linearly interpolates between two colors while preserving exact endpoints.
+///
+/// Flutter's [Color.lerp] returns a base [Color], even when an endpoint is a
+/// [MacosColor]. Returning the original endpoint keeps theme equality stable.
+Color? lerpColor(Color? a, Color? b, double t) {
+  if (t == 0.0) return a;
+  if (t == 1.0) return b;
+  return Color.lerp(a, b, t);
+}
+
 /// A collection of color values lifted from the macOS system color picker.
 class MacosColors {
   /// A fully transparent color.

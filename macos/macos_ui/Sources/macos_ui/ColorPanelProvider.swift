@@ -10,7 +10,7 @@ class ColorPanelProvider: NSObject, FlutterStreamHandler {
   }
 
   func openPanel(pickerMode: String) {
-    setPickerMode(panelMode: pickerMode.components(separatedBy: ".").last!)
+    setPickerMode(panelMode: pickerMode.components(separatedBy: ".").last ?? pickerMode)
     colorPanel.setTarget(self)
     colorPanel.setAction(#selector(startStream(colorPanel:)))
     colorPanel.makeKeyAndOrderFront(self)

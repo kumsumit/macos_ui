@@ -35,7 +35,6 @@ void main() {
     expect(actual, _scrollbarThemeData);
   });
 
-  //FIXME: Why does this pass??
   testWidgets('debugFillProperties', (tester) async {
     final builder = DiagnosticPropertiesBuilder();
     const MacosScrollbarThemeData().debugFillProperties(builder);

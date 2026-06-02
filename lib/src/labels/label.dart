@@ -59,7 +59,7 @@ class Label extends StatelessWidget {
             ),
           ),
         text,
-        if (child != null) child!,
+        ?child,
       ],
     );
   }

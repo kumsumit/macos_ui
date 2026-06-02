@@ -49,7 +49,7 @@ class MacosListTile extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if (leading != null) leading!,
+            ?leading,
             SizedBox(width: leadingWhitespace),
             Expanded(
               child: Column(

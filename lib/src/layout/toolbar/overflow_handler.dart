@@ -151,21 +151,15 @@ class RenderOverflowHandler extends RenderBox
         RenderBoxContainerDefaultsMixin<RenderBox, OverflowHandlerParentData> {
   /// {@macro renderOverflowHandler}
   RenderOverflowHandler({
-    required MainAxisAlignment alignment,
-    required CrossAxisAlignment crossAxisAlignment,
-    required TextDirection? textDirection,
-    required Clip clipBehavior,
-    required double overflowBreakpoint,
-    required MainAxisAlignment overflowWidgetAlignment,
-    required bool alwaysDisplayOverflowWidget,
+    required this._alignment,
+    required this._crossAxisAlignment,
+    required this._textDirection,
+    required this._clipBehavior,
+    required this._overflowBreakpoint,
+    required this._overflowWidgetAlignment,
+    required this._alwaysDisplayOverflowWidget,
     required this.overflowChangedCallback,
-  }) : _alignment = alignment,
-       _crossAxisAlignment = crossAxisAlignment,
-       _textDirection = textDirection,
-       _clipBehavior = clipBehavior,
-       _overflowBreakpoint = overflowBreakpoint,
-       _overflowWidgetAlignment = overflowWidgetAlignment,
-       _alwaysDisplayOverflowWidget = alwaysDisplayOverflowWidget;
+  });
 
   double _overflowBreakpoint;
 

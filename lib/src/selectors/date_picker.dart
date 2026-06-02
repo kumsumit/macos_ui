@@ -580,7 +580,6 @@ class _MacosDatePickerState extends State<MacosDatePicker> {
         dayItems.add(const SizedBox.shrink());
       } else {
         final dayToBuild = DateTime(_selectedYear, _selectedMonth, day);
-        final isDisabled = dayToBuild.day < 1 && dayToBuild.day > daysInMonth;
         final isSelectedDay = DateUtils.isSameDay(
           DateTime(_selectedYear, _selectedMonth, _selectedDay),
           dayToBuild,
@@ -616,7 +615,7 @@ class _MacosDatePickerState extends State<MacosDatePicker> {
           );
         }
 
-        Widget dayWidget = GestureDetector(
+        final dayWidget = GestureDetector(
           behavior: HitTestBehavior.opaque,
           onTap: () {
             setState(() {
@@ -639,10 +638,6 @@ class _MacosDatePickerState extends State<MacosDatePicker> {
             ),
           ),
         );
-
-        if (isDisabled) {
-          dayWidget = ExcludeSemantics(child: dayWidget);
-        }
 
         dayItems.add(dayWidget);
       }

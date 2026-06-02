@@ -177,69 +177,69 @@ class MacosDatePickerThemeData with Diagnosticable {
     double t,
   ) {
     return MacosDatePickerThemeData(
-      backgroundColor: Color.lerp(a.backgroundColor, b.backgroundColor, t),
-      selectedElementColor: Color.lerp(
+      backgroundColor: lerpColor(a.backgroundColor, b.backgroundColor, t),
+      selectedElementColor: lerpColor(
         a.selectedElementColor,
         b.selectedElementColor,
         t,
       ),
-      selectedElementTextColor: Color.lerp(
+      selectedElementTextColor: lerpColor(
         a.selectedElementTextColor,
         b.selectedElementTextColor,
         t,
       ),
-      caretColor: Color.lerp(a.caretColor, b.caretColor, t),
-      caretControlsBackgroundColor: Color.lerp(
+      caretColor: lerpColor(a.caretColor, b.caretColor, t),
+      caretControlsBackgroundColor: lerpColor(
         a.caretControlsBackgroundColor,
         b.caretControlsBackgroundColor,
         t,
       ),
-      caretControlsSeparatorColor: Color.lerp(
+      caretControlsSeparatorColor: lerpColor(
         a.caretControlsSeparatorColor,
         b.caretControlsSeparatorColor,
         t,
       ),
-      monthViewControlsColor: Color.lerp(
+      monthViewControlsColor: lerpColor(
         a.monthViewControlsColor,
         b.monthViewControlsColor,
         t,
       ),
-      monthViewHeaderColor: Color.lerp(
+      monthViewHeaderColor: lerpColor(
         a.monthViewHeaderColor,
         b.monthViewHeaderColor,
         t,
       ),
-      monthViewSelectedDateColor: Color.lerp(
+      monthViewSelectedDateColor: lerpColor(
         a.monthViewSelectedDateColor,
         b.monthViewSelectedDateColor,
         t,
       ),
-      monthViewSelectedDateTextColor: Color.lerp(
+      monthViewSelectedDateTextColor: lerpColor(
         a.monthViewSelectedDateTextColor,
         b.monthViewSelectedDateTextColor,
         t,
       ),
-      monthViewCurrentDateColor: Color.lerp(
+      monthViewCurrentDateColor: lerpColor(
         a.monthViewCurrentDateColor,
         b.monthViewCurrentDateColor,
         t,
       ),
-      monthViewWeekdayHeaderColor: Color.lerp(
+      monthViewWeekdayHeaderColor: lerpColor(
         a.monthViewWeekdayHeaderColor,
         b.monthViewWeekdayHeaderColor,
         t,
       ),
-      monthViewHeaderDividerColor: Color.lerp(
+      monthViewHeaderDividerColor: lerpColor(
         a.monthViewHeaderDividerColor,
         b.monthViewHeaderDividerColor,
         t,
       ),
-      monthViewDateColor: Color.lerp(
+      monthViewDateColor: lerpColor(
         a.monthViewDateColor,
         b.monthViewDateColor,
         t,
       ),
-      shadowColor: Color.lerp(a.shadowColor, b.shadowColor, t),
+      shadowColor: lerpColor(a.shadowColor, b.shadowColor, t),
     );
   }
 
