@@ -8,6 +8,8 @@ analyzer:
   exclude:
     - test/mock_canvas.dart
     - test/recording_canvas.dart
+    - build/**
+    - macos/**
     
 dart_code_metrics:
   metrics:

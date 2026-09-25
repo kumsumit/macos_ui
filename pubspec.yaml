@@ -6,8 +6,8 @@ homepage: "https://macosui.dev"
 repository: "https://github.com/GroovinChip/macos_ui"
 
 environment:
-  sdk: ">=3.12.0 <4.0.0"
-  flutter: ">=3.44.0"
+  sdk: ">=3.13.0 <4.0.0"
+  flutter: ">=3.47.0"
 
 dependencies:
   flutter:
@@ -16,8 +16,8 @@ dependencies:
   gradient_borders: ^1.0.4
   appkit_ui_element_colors:
     git: https://github.com/kumsumit/appkit_ui_element_colors
-  equatable: ^2.0.8
-  vector_math: ^2.4.0
+  equatable: ^3.0.0
+  vector_math: ^2.4.3
 
 dev_dependencies:
   flutter_test:
