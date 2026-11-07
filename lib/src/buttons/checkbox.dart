@@ -111,6 +111,9 @@ class MacosCheckbox extends StatelessWidget {
                   alignment: Alignment.center,
                   child: SizedBox.expand(
                     child: _DecoratedContainer(
+                      activeColor: activeColor,
+                      disabledColor: disabledColor,
+                      offBorderColor: offBorderColor,
                       accentColor: accentColor,
                       isDisabled: isDisabled,
                       isLight: isLight,
@@ -134,6 +137,9 @@ class MacosCheckbox extends StatelessWidget {
 /// A widget that builds a decorated checkbox.
 class _DecoratedContainer extends StatelessWidget {
   const _DecoratedContainer({
+    required this.activeColor,
+    required this.disabledColor,
+    required this.offBorderColor,
     required this.accentColor,
     required this.isDisabled,
     required this.isLight,
@@ -144,6 +150,9 @@ class _DecoratedContainer extends StatelessWidget {
     required this.size,
   });
 
+  final Color? activeColor;
+  final Color disabledColor;
+  final Color offBorderColor;
   final AccentColor accentColor;
   final bool isDisabled;
   final bool isLight;
@@ -156,7 +165,16 @@ class _DecoratedContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: _BoxDecorationBuilder.buildBoxDecoration(
+      decoration: activeColor != null
+          ? BoxDecoration(
+              color: isDisabled
+                  ? disabledColor.withValues(alpha: 0.2)
+                  : value == false ? theme.canvasColor : activeColor,
+              border: Border.all(color: isDisabled
+                  ? disabledColor : value == false ? offBorderColor : activeColor!),
+              borderRadius: BorderRadius.circular(3),
+            )
+          : _BoxDecorationBuilder.buildBoxDecoration(
         accentColor: accentColor,
         isEnabled: !isDisabled,
         isDarkModeEnabled: !isLight,
