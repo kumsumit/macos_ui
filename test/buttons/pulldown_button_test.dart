@@ -1,6 +1,5 @@
 // ignore_for_file: prefer-trailing-comma
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:macos_ui/macos_ui.dart';

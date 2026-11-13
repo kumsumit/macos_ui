@@ -2,7 +2,6 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/foundation.dart';
 import 'package:macos_ui/macos_ui.dart';
-import 'package:macos_ui/src/library.dart';
 
 /// Controls the default color, opacity, and size of icons in a widget subtree.
 ///

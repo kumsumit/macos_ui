@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:macos_ui/macos_ui.dart';
-import 'package:macos_ui/src/library.dart';
 
 /// The edge where a [MacosScrollEdgeEffect] appears.
 enum MacosScrollEdge {
@@ -59,8 +58,8 @@ class MacosScrollEdgeEffect extends StatelessWidget {
     final tint =
         color ??
         brightness.resolve(
-          Colors.white.withValues(alpha: isHard ? 0.54 : 0.24),
-          Colors.black.withValues(alpha: isHard ? 0.48 : 0.2),
+          MacosColors.white.withValues(alpha: isHard ? 0.54 : 0.24),
+          MacosColors.black.withValues(alpha: isHard ? 0.48 : 0.2),
         )!;
     final transparentTint = tint.withValues(alpha: 0);
     final colors = edge == MacosScrollEdge.top

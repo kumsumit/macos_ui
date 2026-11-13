@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:macos_ui/macos_ui.dart';
 import 'package:macos_ui/src/library.dart';
 
@@ -240,7 +241,7 @@ class _MacosTooltipState extends State<MacosTooltip>
   void _handleLongPress() {
     _longPressActivated = true;
     final bool tooltipCreated = ensureTooltipVisible();
-    if (tooltipCreated) Feedback.forLongPress(context);
+    if (tooltipCreated) HapticFeedback.selectionClick();
   }
 
   @override

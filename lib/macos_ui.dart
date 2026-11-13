@@ -14,6 +14,8 @@
 
 library;
 
+export 'package:cupertino_ui/cupertino_ui.dart' hide OverlayVisibilityMode;
+
 export 'package:macos_window_utils/macos/ns_window_delegate.dart';
 export 'package:macos_window_utils/macos_window_utils.dart';
 
@@ -28,6 +30,9 @@ export 'src/buttons/push_button.dart';
 export 'src/buttons/radio_button.dart';
 export 'src/buttons/segmented_control.dart';
 export 'src/buttons/switch.dart';
+export 'src/layout/macos_primitives.dart';
+export 'src/theme/macos_density.dart';
+export 'src/theme/macos_platform_types.dart';
 export 'src/buttons/toolbar/toolbar_icon_button.dart';
 export 'src/buttons/toolbar/toolbar_overflow_button.dart';
 export 'src/buttons/toolbar/toolbar_pulldown_button.dart';

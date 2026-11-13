@@ -1,6 +1,5 @@
 import 'package:macos_ui/macos_ui.dart';
 // ignore: implementation_imports
-import 'package:macos_ui/src/library.dart';
 
 const dialogMessage =
     'Description text about this alert is shown here, explaining to users what the options underneath are about and what to do.';

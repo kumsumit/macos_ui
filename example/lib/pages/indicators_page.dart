@@ -1,8 +1,6 @@
 import 'package:example/widgets/widget_text_title1.dart';
 import 'package:example/widgets/widget_text_title2.dart';
 import 'package:macos_ui/macos_ui.dart';
-// ignore: implementation_imports
-import 'package:macos_ui/src/library.dart';
 
 class IndicatorsPage extends StatefulWidget {
   const IndicatorsPage({super.key});

@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:macos_ui/macos_ui.dart';
 
@@ -460,9 +458,7 @@ void main() {
     },
   );
 
-  // Regression test due to invalid "firstDayOfWeekIndex" implementation in MaterialLocalizations
-  // issue: https://github.com/flutter/flutter/issues/122274
-  // TODO: remove this once the issue is fixed and test starts failing
+  // Regression coverage for explicit Monday-first calendar ordering.
   testWidgets(
     'Graphical MacosDatePicker still needs "startWeekOnMonday" to show Monday as the first day of the week, even when the locale is set to something other than "en_US"',
     (tester) async {

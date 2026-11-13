@@ -1,5 +1,4 @@
 import 'package:macos_ui/macos_ui.dart';
-import 'package:macos_ui/src/library.dart';
 import 'package:macos_window_utils/widgets/macos_toolbar_passthrough.dart';
 
 /// An icon button suitable for the toolbar.
@@ -55,7 +54,7 @@ class ToolBarIconButton extends ToolbarItem {
     final brightness = MacosTheme.of(context).brightness;
     if (displayMode == ToolbarItemDisplayMode.inToolbar) {
       Widget iconButton = MacosIconButton(
-        disabledColor: Colors.transparent,
+        disabledColor: MacosColors.transparent,
         icon: MacosIconTheme(
           data: MacosTheme.of(context).iconTheme.copyWith(
             color: brightness.resolve(

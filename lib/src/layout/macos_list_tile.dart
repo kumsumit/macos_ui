@@ -1,5 +1,4 @@
 import 'package:macos_ui/macos_ui.dart';
-import 'package:macos_ui/src/library.dart';
 
 /// A widget that aims to approximate the [ListTile] widget found in
 /// Flutter's material library.

@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:macos_ui/macos_ui.dart';
-import 'package:macos_ui/src/library.dart';
 
 /// Overrides the default style of its [MacosPulldownButton] descendants.
 ///

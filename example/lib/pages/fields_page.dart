@@ -1,7 +1,6 @@
 import 'package:example/widgets/widget_text_title1.dart';
-import 'package:flutter/cupertino.dart' hide OverlayVisibilityMode;
-import 'package:flutter/material.dart';
 import 'package:macos_ui/macos_ui.dart';
+import 'package:macos_ui/macos_ui.dart' as macos;
 
 class FieldsPage extends StatefulWidget {
   const FieldsPage({super.key});
@@ -66,7 +65,7 @@ class _FieldsPageState extends State<FieldsPage> {
                       /// If both suffix and clear button mode is provided,
                       /// suffix will override the clear button.
                       // suffix: Text('SUFFIX'),
-                      clearButtonMode: OverlayVisibilityMode.always,
+                      clearButtonMode: macos.OverlayVisibilityMode.always,
                       maxLines: 1,
                     ),
                   ),
@@ -80,7 +79,7 @@ class _FieldsPageState extends State<FieldsPage> {
                       /// If both suffix and clear button mode is provided,
                       /// suffix will override the clear button.
                       suffix: Text('SUFFIX'),
-                      // clearButtonMode: OverlayVisibilityMode.always,
+                      // clearButtonMode: macos.OverlayVisibilityMode.always,
                       maxLines: 1,
                     ),
                   ),
@@ -95,7 +94,7 @@ class _FieldsPageState extends State<FieldsPage> {
                       /// If both suffix and clear button mode is provided,
                       /// suffix will override the clear button.
                       // suffix: Text('SUFFIX'),
-                      clearButtonMode: OverlayVisibilityMode.always,
+                      clearButtonMode: macos.OverlayVisibilityMode.always,
                       maxLines: 1,
                     ),
                   ),

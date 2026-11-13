@@ -1,8 +1,5 @@
-import 'dart:math' as math;
-
 import 'package:flutter/foundation.dart';
 import 'package:macos_ui/macos_ui.dart';
-import 'package:macos_ui/src/library.dart';
 
 /// Defines the height of a regular-sized [SliverToolBar]
 const _kToolbarHeight = 52.0;
@@ -311,27 +308,24 @@ class _SliverToolBarDelegate extends SliverPersistentHeaderDelegate {
           );
     }
 
-    return FlexibleSpaceBar.createSettings(
-      minExtent: minExtent,
-      maxExtent: maxExtent,
-      currentExtent: math.max(minExtent, maxExtent - shrinkOffset),
-      toolbarOpacity: opacity,
-      isScrolledUnder: isScrolledUnder,
-      child: ToolBar(
-        automaticallyImplyLeading: automaticallyImplyLeading,
-        leading: leading,
-        title: title,
-        titleWidth: titleWidth,
-        decoration: effectiveDecoration,
-        padding: padding,
-        actions: actions,
-        centerTitle: centerTitle,
-        dividerColor: dividerColor,
-        alignment: alignment,
-        height: height,
-        enableBlur: true,
-        allowWallpaperTintingOverrides: allowWallpaperTintingOverrides,
-      ),
+    // Keep the toolbar self-contained instead of relying on Material's
+    // FlexibleSpaceBar settings inherited widget. The macOS toolbar does not
+    // consume those settings, so returning it directly preserves the same
+    // layout and scroll behavior without importing Material.
+    return ToolBar(
+      automaticallyImplyLeading: automaticallyImplyLeading,
+      leading: leading,
+      title: title,
+      titleWidth: titleWidth,
+      decoration: effectiveDecoration,
+      padding: padding,
+      actions: actions,
+      centerTitle: centerTitle,
+      dividerColor: dividerColor,
+      alignment: alignment,
+      height: height,
+      enableBlur: true,
+      allowWallpaperTintingOverrides: allowWallpaperTintingOverrides,
     );
   }
 

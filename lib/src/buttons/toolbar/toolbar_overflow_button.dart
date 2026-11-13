@@ -1,5 +1,4 @@
 import 'package:macos_ui/macos_ui.dart';
-import 'package:macos_ui/src/library.dart';
 
 /// A button to show at the far right side of the toolbar.
 class ToolbarOverflowButton extends StatefulWidget {

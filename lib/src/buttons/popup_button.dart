@@ -1,11 +1,9 @@
 import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:macos_ui/macos_ui.dart';
-import 'package:macos_ui/src/library.dart';
 
 const Duration _kMacosPopupMenuDuration = Duration(milliseconds: 300);
 const Offset _kPopupRouteOffset = Offset(-10.0, 5.0);
@@ -129,7 +127,7 @@ class _MacosPopupMenuItemButtonState<T>
               decoration: BoxDecoration(
                 color: _isHighlighted
                     ? MacosPopupButtonTheme.of(context).highlightColor
-                    : Colors.transparent,
+                    : CupertinoColors.transparent,
                 borderRadius: _kBorderRadius,
               ),
               child: Row(
@@ -1014,7 +1012,7 @@ class MacosPopupButton<T> extends StatefulWidget {
       DoubleProperty(
         'itemHeight',
         itemHeight,
-        defaultValue: kMinInteractiveDimension,
+        defaultValue: _kMinInteractiveDimension,
       ),
     );
     properties.add(
@@ -1168,7 +1166,7 @@ class _MacosPopupButtonState<T> extends State<MacosPopupButton<T>>
         to: navigator.context,
       ),
       style: _textStyle!,
-      barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
+      barrierLabel: CupertinoLocalizations.of(context).modalBarrierDismissLabel,
       itemHeight: widget.itemHeight,
       popupColor: widget.popupColor,
       menuMaxHeight: widget.menuMaxHeight,

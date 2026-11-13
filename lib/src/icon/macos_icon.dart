@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:macos_ui/macos_ui.dart';
-import 'package:macos_ui/src/library.dart';
 import 'package:vector_math/vector_math_64.dart';
 
 /// An Icon widget that respects a macOS icon theme.

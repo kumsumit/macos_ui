@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:macos_ui/macos_ui.dart';
 import 'package:macos_ui/src/layout/wallpaper_tinting_settings/wallpaper_tinting_override.dart';
-import 'package:macos_ui/src/library.dart';
 
 /// Shared geometry for the macOS 26 design language.
 ///
@@ -87,8 +86,8 @@ class MacosLiquidGlass extends StatelessWidget {
     final outline =
         borderColor ??
         brightness.resolve(
-          Colors.white.withValues(alpha: isProminent ? 0.72 : 0.52),
-          Colors.white.withValues(alpha: isProminent ? 0.2 : 0.14),
+          MacosColors.white.withValues(alpha: isProminent ? 0.72 : 0.52),
+          MacosColors.white.withValues(alpha: isProminent ? 0.2 : 0.14),
         )!;
 
     return WallpaperTintingOverride(
@@ -101,7 +100,7 @@ class MacosLiquidGlass extends StatelessWidget {
               boxShadow ??
               [
                 BoxShadow(
-                  color: Colors.black.withValues(
+                  color: MacosColors.black.withValues(
                     alpha: isProminent ? 0.2 : 0.12,
                   ),
                   offset: const Offset(0, 4),

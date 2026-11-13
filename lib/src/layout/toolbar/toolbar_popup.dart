@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 
+import 'package:cupertino_ui/cupertino_ui.dart';
 import 'package:macos_ui/src/library.dart';
 
 /// Where the popup will be placed vertically relative to the child
@@ -149,7 +150,7 @@ class ToolbarPopupState<T> extends State<ToolbarPopup<T>> {
       transitionAnimationDuration: const Duration(milliseconds: 100),
       verticalOffset: widget.verticalOffset,
       horizontalOffset: widget.horizontalOffset,
-      barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
+      barrierLabel: CupertinoLocalizations.of(context).modalBarrierDismissLabel,
     );
     return navigator.push(_dropdownRoute!).then((T? newValue) {
       removeToolbarPopupRoute();

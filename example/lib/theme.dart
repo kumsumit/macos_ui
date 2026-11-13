@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:macos_ui/macos_ui.dart';
 
 class AppTheme extends ChangeNotifier {
   ThemeMode _mode = ThemeMode.system;

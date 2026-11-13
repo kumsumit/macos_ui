@@ -290,10 +290,9 @@ class _MacosWindowState extends State<MacosWindow> {
                                 const SizedBox.shrink(),
                               if (_sidebarScrollController.hasClients &&
                                   _sidebarScrollController.offset > 0.0)
-                                Divider(
-                                  thickness: 1,
-                                  height: 1,
+                                ColoredBox(
                                   color: dividerColor,
+                                  child: const SizedBox(height: 1),
                                 ),
                               if (sidebar.top != null &&
                                   constraints.maxHeight > 81)
@@ -348,10 +347,9 @@ class _MacosWindowState extends State<MacosWindow> {
                                   const SizedBox.shrink(),
                                 if (_sidebarScrollController.hasClients &&
                                     _sidebarScrollController.offset > 0.0)
-                                  Divider(
-                                    thickness: 1,
-                                    height: 1,
+                                  ColoredBox(
                                     color: dividerColor,
+                                    child: const SizedBox(height: 1),
                                   ),
                                 if (sidebar.top != null &&
                                     constraints.maxHeight > 81)
@@ -465,10 +463,9 @@ class _MacosWindowState extends State<MacosWindow> {
                     cursor: _sidebarCursor,
                     child: Align(
                       alignment: Alignment.center,
-                      child: VerticalDivider(
-                        thickness: 1,
+                      child: SizedBox(
                         width: 1,
-                        color: dividerColor,
+                        child: ColoredBox(color: dividerColor),
                       ),
                     ),
                   ),
@@ -503,7 +500,10 @@ class _MacosWindowState extends State<MacosWindow> {
                           SizedBox(height: endSidebar.topOffset),
                         if (_endSidebarScrollController.hasClients &&
                             _endSidebarScrollController.offset > 0.0)
-                          Divider(thickness: 1, height: 1, color: dividerColor),
+                          ColoredBox(
+                            color: dividerColor,
+                            child: const SizedBox(height: 1),
+                          ),
                         if (endSidebar.top != null)
                           Padding(
                             padding: const EdgeInsets.symmetric(
@@ -586,10 +586,9 @@ class _MacosWindowState extends State<MacosWindow> {
                     cursor: _endSidebarCursor,
                     child: Align(
                       alignment: Alignment.center,
-                      child: VerticalDivider(
-                        thickness: 1,
+                      child: SizedBox(
                         width: 1,
-                        color: dividerColor,
+                        child: ColoredBox(color: dividerColor),
                       ),
                     ),
                   ),

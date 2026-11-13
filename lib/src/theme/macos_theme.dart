@@ -1,7 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:macos_ui/macos_ui.dart';
-import 'package:macos_ui/src/library.dart';
 
 CupertinoDynamicColor _kScrollbarColor = CupertinoDynamicColor.withBrightness(
   color: MacosColors.systemGrayColor.color.withValues(alpha: 0.8),
@@ -193,7 +192,7 @@ class MacosThemeData extends Equatable with Diagnosticable {
     Color? dividerColor,
     HelpButtonThemeData? helpButtonTheme,
     MacosTooltipThemeData? tooltipTheme,
-    VisualDensity? visualDensity,
+    MacosControlDensity? visualDensity,
     MacosScrollbarThemeData? scrollbarTheme,
     MacosIconButtonThemeData? macosIconButtonTheme,
     MacosIconThemeData? iconTheme,
@@ -262,7 +261,7 @@ class MacosThemeData extends Equatable with Diagnosticable {
       ),
     );
 
-    visualDensity ??= VisualDensity.adaptivePlatformDensity;
+    visualDensity ??= const MacosControlDensity.standard();
 
     iconTheme ??= MacosIconThemeData(
       color: _ColorProvider.getActiveColor(
@@ -468,7 +467,7 @@ class MacosThemeData extends Equatable with Diagnosticable {
   ///
   /// This is used by [MacosTheme.of] when no theme has been specified.
   factory MacosThemeData.fallback() => MacosThemeData.light().copyWith(
-    visualDensity: VisualDensity.adaptivePlatformDensity,
+    visualDensity: const MacosControlDensity.standard(),
   );
 
   /// The overall theme brightness.
@@ -504,8 +503,8 @@ class MacosThemeData extends Equatable with Diagnosticable {
 
   /// The density value for specifying the compactness of various UI components.
   ///
-  /// {@macro flutter.material.themedata.visualDensity}
-  final VisualDensity visualDensity;
+  /// The macOS-specific density used for control spacing and sizing.
+  final MacosControlDensity visualDensity;
 
   /// The default style for [MacosScrollbar]s below the overall [MacosTheme]
   final MacosScrollbarThemeData scrollbarTheme;
@@ -557,7 +556,11 @@ class MacosThemeData extends Equatable with Diagnosticable {
         b.tooltipTheme,
         t,
       ),
-      visualDensity: VisualDensity.lerp(a.visualDensity, b.visualDensity, t),
+      visualDensity: MacosControlDensity.lerp(
+        a.visualDensity,
+        b.visualDensity,
+        t,
+      ),
       scrollbarTheme: MacosScrollbarThemeData.lerp(
         a.scrollbarTheme,
         b.scrollbarTheme,
@@ -609,7 +612,7 @@ class MacosThemeData extends Equatable with Diagnosticable {
     Color? dividerColor,
     HelpButtonThemeData? helpButtonTheme,
     MacosTooltipThemeData? tooltipTheme,
-    VisualDensity? visualDensity,
+    MacosControlDensity? visualDensity,
     MacosScrollbarThemeData? scrollbarTheme,
     MacosIconButtonThemeData? iconButtonTheme,
     MacosIconThemeData? iconTheme,

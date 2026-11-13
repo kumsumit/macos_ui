@@ -198,15 +198,13 @@ class _MacosDatePickerState extends State<MacosDatePicker> {
   // or Mo, Tu, We, Th, Fr, Sa, Su depending on the value of [startWeekOnMonday]
   List<Widget> _dayHeaders(
     TextStyle? headerStyle,
-    MaterialLocalizations localizations,
+    CupertinoLocalizations localizations,
   ) {
     final result = <Widget>[];
 
-    // Hack due to invalid "firstDayOfWeekIndex" implementation in MaterialLocalizations
-    // issue: https://github.com/flutter/flutter/issues/122274
-    // TODO: remove this workaround once the issue is fixed.
-    //  Then, "firstDayOfWeekIndex" can be controlled by passing "localizationsDelegates" and "supportedLocales" to MacosApp
-    int firstDayOfWeekIndex = localizations.firstDayOfWeekIndex;
+    // Cupertino localization does not expose a first-weekday preference.
+    // macOS users can opt into Monday-first ordering explicitly.
+    int firstDayOfWeekIndex = 0;
     if (widget.startWeekOnMonday == true) {
       firstDayOfWeekIndex = 1;
     }
@@ -512,9 +510,9 @@ class _MacosDatePickerState extends State<MacosDatePicker> {
                         addRepaintBoundaries: false,
                       ),
                     ),
-                    Divider(
-                      color: datePickerTheme.monthViewHeaderDividerColor,
-                      height: 0,
+                    ColoredBox(
+                      color: datePickerTheme.monthViewHeaderDividerColor!,
+                      child: const SizedBox(height: 1),
                     ),
                     GridView.custom(
                       shrinkWrap: true,
@@ -543,12 +541,12 @@ class _MacosDatePickerState extends State<MacosDatePicker> {
       fontSize: 10.0,
       letterSpacing: 0.12,
     );
-    final localizations = MaterialLocalizations.of(context);
+    final localizations = CupertinoLocalizations.of(context);
     final daysInMonth = DateUtils.getDaysInMonth(_selectedYear, _selectedMonth);
     final dayOffset = DateUtils.firstDayOffset(
       _selectedYear,
       _selectedMonth,
-      localizations,
+      0,
     );
     final dayHeaders = _dayHeaders(
       MacosTheme.of(context).typography.caption1.copyWith(
@@ -559,10 +557,8 @@ class _MacosDatePickerState extends State<MacosDatePicker> {
       localizations,
     );
 
-    // Hack due to invalid "firstDayOfWeekIndex" implementation in MaterialLocalizations
-    // issue: https://github.com/flutter/flutter/issues/122274
-    // TODO: remove this workaround once the issue is fixed.
-    //  Then, DateUtils.getDaysInMonth will work as expected when proper "localizationsDelegates" and "supportedLocales" are provided to MacosApp
+    // Keep the calendar grid aligned with the explicit macOS Monday-first
+    // option. This is independent of Cupertino localization internals.
     int fixedDayOffset = dayOffset;
     if (widget.startWeekOnMonday == true) {
       fixedDayOffset = dayOffset - 1;
@@ -591,7 +587,7 @@ class _MacosDatePickerState extends State<MacosDatePicker> {
 
         if (isToday && isSelectedDay) {
           dayText = Text(
-            localizations.formatDecimal(day),
+            day.toString(),
             style: dayStyle.apply(
               color: textLuminance(datePickerTheme.monthViewCurrentDateColor!),
             ),
@@ -602,13 +598,13 @@ class _MacosDatePickerState extends State<MacosDatePicker> {
           );
         } else if (isToday) {
           dayText = Text(
-            localizations.formatDecimal(day),
+            day.toString(),
             style: dayStyle.apply(
               color: datePickerTheme.monthViewCurrentDateColor,
             ),
           );
         } else if (isSelectedDay) {
-          dayText = Text(localizations.formatDecimal(day), style: dayStyle);
+          dayText = Text(day.toString(), style: dayStyle);
           decoration = BoxDecoration(
             color: datePickerTheme.monthViewSelectedDateColor,
             borderRadius: const BorderRadius.all(Radius.circular(3.0)),
@@ -633,7 +629,7 @@ class _MacosDatePickerState extends State<MacosDatePicker> {
                 padding: const EdgeInsets.only(right: 2.0),
                 child:
                     dayText ??
-                    Text(localizations.formatDecimal(day), style: dayStyle),
+                    Text(day.toString(), style: dayStyle),
               ),
             ),
           ),

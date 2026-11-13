@@ -1,5 +1,4 @@
 import 'package:macos_ui/macos_ui.dart';
-import 'package:macos_ui/src/library.dart';
 
 /// {@template macosSegmentedControl}
 /// Displays one or more navigational tabs in a single horizontal group.
@@ -96,16 +95,16 @@ class _MacosSegmentedControlState extends State<MacosSegmentedControl> {
 
                     if (!last) {
                       row.children.add(
-                        VerticalDivider(
+                        Container(
+                          width: 2.0,
+                          height: 24.0,
+                          margin: const EdgeInsets.symmetric(vertical: 5.0),
                           color: showDividerColor
                               ? brightness.resolve(
                                   const Color(0xFFC9C9C9),
                                   const Color(0xFF26222C),
                                 )
                               : MacosColors.transparent,
-                          width: 2.0,
-                          indent: 5.0,
-                          endIndent: 5.0,
                         ),
                       );
                     }

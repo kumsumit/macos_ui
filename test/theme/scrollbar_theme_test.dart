@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:macos_ui/macos_ui.dart';
-import 'package:macos_ui/src/library.dart';
 
 void main() {
   test('==, hashCode, copyWith basics', () {
@@ -49,9 +48,9 @@ void main() {
 }
 
 final _scrollbarThemeData = MacosScrollbarThemeData(
-  thumbColor: Colors.grey.shade600,
+  thumbColor: const Color(0xff666666),
 );
 
 final _scrollbarThemeDataDark = MacosScrollbarThemeData(
-  thumbColor: Colors.grey.shade300,
+  thumbColor: const Color(0xffcccccc),
 );

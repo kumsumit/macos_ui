@@ -1,5 +1,4 @@
 import 'package:macos_ui/macos_ui.dart';
-import 'package:macos_ui/src/library.dart';
 
 /// The edge where a [MacosSplitViewItemAccessory] appears.
 enum MacosSplitViewItemAccessoryAlignment {

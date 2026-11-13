@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 import 'package:macos_ui/macos_ui.dart';
-import 'package:macos_ui/src/library.dart';
 
 const BorderRadius _kBorderRadius = BorderRadius.all(Radius.circular(7.0));
 const double _kResultHeight = 20.0;
@@ -530,7 +529,7 @@ class _SearchResultItemButtonState extends State<_SearchResultItemButton> {
           decoration: BoxDecoration(
             color: _isHovered
                 ? MacosSearchFieldTheme.of(context).highlightColor
-                : Colors.transparent,
+                : MacosColors.transparent,
             borderRadius: _kBorderRadius,
           ),
           child: DefaultTextStyle(

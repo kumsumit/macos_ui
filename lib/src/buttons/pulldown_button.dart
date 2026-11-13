@@ -1,7 +1,6 @@
 import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:macos_ui/macos_ui.dart';
@@ -99,7 +98,7 @@ class _MacosPulldownMenuItemButtonState
                 decoration: BoxDecoration(
                   color: _isHovered
                       ? MacosPulldownButtonTheme.of(context).highlightColor
-                      : Colors.transparent,
+                      : CupertinoColors.transparent,
                   borderRadius: _kBorderRadius,
                 ),
                 child: DefaultTextStyle(
@@ -228,7 +227,7 @@ class _MacosPulldownMenuRouteLayout extends SingleChildLayoutDelegate {
   @override
   BoxConstraints getConstraintsForChild(BoxConstraints constraints) {
     return BoxConstraints(
-      minWidth: kMinInteractiveDimension,
+      minWidth: _kMenuItemHeight,
       maxWidth: constraints.maxWidth,
       maxHeight: constraints.maxHeight,
     );
@@ -829,7 +828,7 @@ class _MacosPulldownButtonState extends State<MacosPulldownButton>
         to: navigator.context,
       ),
       style: _textStyle!,
-      barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
+      barrierLabel: CupertinoLocalizations.of(context).modalBarrierDismissLabel,
       itemHeight: widget.itemHeight,
       menuAlignment: widget.menuAlignment,
     );

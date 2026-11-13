@@ -1,6 +1,5 @@
 import 'package:flutter/services.dart';
 import 'package:macos_ui/macos_ui.dart';
-import 'package:macos_ui/src/library.dart';
 
 /// A menu-item that belongs in the toolbar overflowed actions menu.
 class ToolbarOverflowMenuItem extends StatefulWidget {
@@ -100,7 +99,7 @@ class _ToolbarOverflowMenuItemState extends State<ToolbarOverflowMenuItem> {
               decoration: BoxDecoration(
                 color: _isHighlighted
                     ? theme.pulldownButtonTheme.highlightColor
-                    : Colors.transparent,
+                    : MacosColors.transparent,
                 borderRadius: const BorderRadius.all(Radius.circular(5.0)),
               ),
               child: DefaultTextStyle(

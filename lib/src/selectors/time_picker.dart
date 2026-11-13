@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:macos_ui/macos_ui.dart';
-import 'package:macos_ui/src/library.dart';
 import 'package:macos_ui/src/selectors/caret_painters.dart';
 import 'package:macos_ui/src/selectors/graphical_time_picker_painter.dart';
 import 'package:macos_ui/src/selectors/keyboard_shortcut_runner.dart';
@@ -71,7 +70,7 @@ class _MacosTimePickerState extends State<MacosTimePicker> {
   bool _isHourSelected = false;
   bool _isMinuteSelected = false;
   bool _isPeriodSelected = false;
-  late MaterialLocalizations localizations = MaterialLocalizations.of(context);
+  late CupertinoLocalizations localizations = CupertinoLocalizations.of(context);
   late var time = DateTime(
     DateTime.now().year,
     DateTime.now().month,
@@ -189,7 +188,7 @@ class _MacosTimePickerState extends State<MacosTimePicker> {
 
   Widget _buildTextualTimePicker(
     MacosTimePickerThemeData timePickerTheme,
-    MaterialLocalizations localizations,
+    CupertinoLocalizations localizations,
   ) {
     return KeyboardShortcutRunner(
       onUpArrowKeypress: _incrementElement,
@@ -213,9 +212,7 @@ class _MacosTimePickerState extends State<MacosTimePicker> {
                   children: [
                     TimePickerFieldElement(
                       isSelected: _isHourSelected,
-                      element: localizations.formatHour(
-                        TimeOfDay(hour: _selectedHour, minute: _selectedMinute),
-                      ),
+                      element: _selectedHour.toString().padLeft(2, '0'),
                       onSelected: () {
                         setState(() {
                           _focusNode.requestFocus();
@@ -228,9 +225,7 @@ class _MacosTimePickerState extends State<MacosTimePicker> {
                     const Text(':'),
                     TimePickerFieldElement(
                       isSelected: _isMinuteSelected,
-                      element: localizations.formatMinute(
-                        TimeOfDay(hour: _selectedHour, minute: _selectedMinute),
-                      ),
+                      element: _selectedMinute.toString().padLeft(2, '0'),
                       onSelected: () {
                         setState(() {
                           _focusNode.requestFocus();
@@ -355,7 +350,7 @@ class _MacosTimePickerState extends State<MacosTimePicker> {
   @override
   Widget build(BuildContext context) {
     final timePickerTheme = MacosTimePickerTheme.of(context);
-    final localizations = MaterialLocalizations.of(context);
+    final localizations = CupertinoLocalizations.of(context);
 
     switch (widget.style) {
       case TimePickerStyle.textual:

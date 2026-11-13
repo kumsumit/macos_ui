@@ -4,7 +4,6 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 import 'package:macos_ui/macos_ui.dart';
-import 'package:macos_ui/src/library.dart';
 
 const _methodChannel = MethodChannel('dev.groovinchip.macos_ui');
 const _eventChannel = EventChannel('dev.groovinchip.macos_ui/color_panel');

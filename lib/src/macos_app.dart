@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart' as c;
+import 'package:cupertino_ui/cupertino_ui.dart' as c;
 import 'package:macos_ui/macos_ui.dart';
-import 'package:macos_ui/src/library.dart';
 
 /// An application that uses macOS design.
 ///
@@ -442,7 +441,6 @@ class _MacosAppState extends State<MacosApp> {
     if (widget.localizationsDelegates != null) {
       yield* widget.localizationsDelegates!;
     }
-    yield DefaultMaterialLocalizations.delegate;
     yield DefaultCupertinoLocalizations.delegate;
     yield DefaultWidgetsLocalizations.delegate;
   }
