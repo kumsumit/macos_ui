@@ -265,7 +265,9 @@ class _MacosWindowState extends State<MacosWindow> {
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 300),
                   curve: Curves.easeInOut,
-                  color: sidebarBackgroundColor,
+                  // The sidebar decoration is painted once by the inner
+                  // platform-specific surface below. Painting it here too
+                  // would blend translucent colors twice.
                   constraints: BoxConstraints(
                     minWidth: sidebar.minWidth,
                     maxWidth: sidebar.maxWidth!,
