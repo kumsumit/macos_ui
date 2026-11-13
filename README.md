@@ -6,9 +6,6 @@ Check out our **interactive widget gallery** online at https://macosui.github.io
 
 Guides, codelabs, and other documentation can be found at https://macosui.dev
 
-[![pub package](https://img.shields.io/pub/v/macos_ui.svg)](https://pub.dev/packages/macos_ui)
-[![pub package](https://img.shields.io/pub/publisher/macos_ui.svg)](https://pub.dev/packages/macos_ui)  
-
 [![Flutter Analysis](https://github.com/GroovinChip/macos_ui/actions/workflows/flutter_analysis.yml/badge.svg?branch=stable)](https://github.com/GroovinChip/macos_ui/actions/workflows/flutter_analysis.yml)
 [![Pana Analysis](https://github.com/GroovinChip/macos_ui/actions/workflows/pana_analysis.yml/badge.svg)](https://github.com/GroovinChip/macos_ui/actions/workflows/pana_analysis.yml)
 [![codecov](https://github.com/GroovinChip/macos_ui/actions/workflows/codecov.yaml/badge.svg)](https://github.com/GroovinChip/macos_ui/actions/workflows/codecov.yaml)
@@ -35,9 +32,9 @@ The features of `macos_ui` that will _not_ work on platforms other than macOS du
 
 ### <img src="https://storage.googleapis.com/cms-storage-bucket/0dbfcc7a59cd1cf16282.png" height="14"/> Flutter Compatibility
 
-Starting with version `2.2.0+1`, `macos_ui` requires Flutter `3.35.0` or higher due to a depredation in Flutter 3.35.0. If you use an older Flutter version along with `macos_ui` version `2.2.0+1`, only version `2.2.0` will be available to you when you run `flutter pub get`.
+The current development version requires Flutter `3.47.0` or higher due to API and deprecation changes in recent Flutter releases. If you need to support an older Flutter version, use a compatible release of `macos_ui`.
 
-**We therefore strongly recommend that you use Flutter `3.35.0` or higher if developing with `macos_ui` so that you gain access to the latest features and fixes.**
+**We therefore strongly recommend that you use Flutter `3.47.0` or higher when developing with the current source.**
 
 ### <img src="https://imgur.com/TIP0V7H.png" height="14"/> Popups & window resizing
 
