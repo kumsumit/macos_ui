@@ -282,6 +282,15 @@ class PushButtonState extends State<PushButton>
     // focus), make the button look as if it was a secondary button.
     final isMainWindow = WindowMainStateListener.instance.isMainWindow;
 
+    // Explicit application colors take precedence over the system accent.
+    if (widget.color != null) {
+      return BoxDecoration(
+        color: widget.enabled
+            ? widget.color
+            : widget.disabledColor ?? MacosTheme.of(context).canvasColor,
+        borderRadius: widget.borderRadius,
+      );
+    }
     return _BoxDecorationBuilder.buildBoxDecoration(
       accentColor: _getAccentColor(context),
       isEnabled: widget.enabled,
@@ -335,7 +344,7 @@ class PushButtonState extends State<PushButton>
 
     return BoxDecoration(
       color: color,
-      borderRadius: widget.controlSize.borderRadius,
+      borderRadius: widget.borderRadius,
     );
   }
 
@@ -376,7 +385,7 @@ class PushButtonState extends State<PushButton>
 
                     return DecoratedBox(
                       decoration: _getBoxDecoration().copyWith(
-                        borderRadius: widget.controlSize.borderRadius,
+                        borderRadius: widget.borderRadius,
                       ),
                       child: Container(
                         foregroundDecoration: buttonHeldDown
